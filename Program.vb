@@ -1,36 +1,30 @@
-Imports System
-
 Module Program
     Sub Main()
-        Dim Str1 As String
-        Dim NumCount, i, k, ANum As Integer
-        Dim Chr, chr2, Chr3 As Char
-        ANum = 0
-        Chr3 = " "
-        NumCount = 0
-        Console.WriteLine("Enter the strin: ")
-        Str1 = Console.ReadLine()
-        For k = 1 To Len(Str1)
-            Chr = Mid(Str1, k, 1)
-            NumCount = 0
-            For i = 1 To Len(Str1)
-                chr2 = Mid(Str1, i, 1)
-                If Chr = chr2 Then NumCount = NumCount + 1
-            Next
-            If NumCount > ANum Then
-                ANum = NumCount
-                Chr3 = chr2
+        Dim Str1, alphabets As String
+        Dim i As Integer
+        Dim chr As Char
+        Dim alpha As Boolean
+        alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        Str1 = " "
+        chr = " "
+        i = 0
+        alpha = True
+        Console.WriteLine("enter string: ")
+        Str1 = UCase(Console.ReadLine())
+        For i = 1 To Len(Str1)
+            chr = Mid(alphabets, i, 1)
+            If chr >= "A" And chr <= "Z" Then
+                alpha = True
+            Else
+                alpha = False
             End If
         Next
-        Console.WriteLine(Chr3 & " : appeared" & ANum & "  : times")
+        If alpha = False Then
+            Console.WriteLine("the string does not have all the alphabets")
+        Else
+            Console.WriteLine("the string has all the alphabets")
+        End If
         Console.ReadKey()
-
-
-
-
-
-
-
 
     End Sub
 End Module
