@@ -1,23 +1,48 @@
 Imports System
+Imports System.Threading
 
 Module Program
     Sub Main()
-        Dim str1, Nstr As String
-        Dim chr, chr2, chr3 As String
-        Nstr = " "
+        'inputtwo strings and swap two chars of both string
+        Dim str1, str2, Newstr1, Newstr2, MX As String
+        Dim i, k As Integer
+        Dim chr1, chr2, X, Y As String
+        i = 0
+        k = 0
         str1 = " "
-        chr = InStr(str1, "not")
-        chr2 = InStr(str1, "bad ")
-        chr3 = "good"
-        Console.WriteLine("enter string: ")
+        str2 = " "
+        Newstr1 = " "
+        Newstr2 = " "
+        MX = " "
+        chr1 = " "
+        chr2 = " "
+        X = " "
+        Y = " "
+        Console.WriteLine("enter the word: ")
         str1 = Console.ReadLine()
-        If chr & chr2 = "not bad" Then
-            Nstr = str1 & chr3
+        Console.WriteLine("enter the second word: ")
+        str2 = Console.ReadLine()
+        i = Len(str1)
+        k = Len(str2)
+        If i >= 2 Then
+            chr1 = Left(str1, 2)
+            If k >= 2 Then
+                chr2 = Left(str2, 2)
+            End If
         End If
-        Console.WriteLine(Nstr)
+        If i > 2 Then
+            X = Right(str1, i - 2)
+            If k > 2 Then
+                Y = Right(str2, k - 2)
+            End If
+        End If
+
+        Newstr1 = chr1 & Y
+        Newstr2 = chr2 & X
+
+        MX = Newstr1 & " " & Newstr2
+        Console.WriteLine("the new string is " & MX)
         Console.ReadKey()
-
-
 
     End Sub
 End Module
