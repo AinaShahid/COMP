@@ -2,21 +2,35 @@ Imports System
 
 Module Program
     Sub Main()
-        Dim S As String
-        Dim chr As Char
-        Dim chr2 As Char
-        Dim j As Integer
-        Console.WriteLine("enter the word")
-        S = Console.ReadLine()
-        chr = Left(S, 1)
-        Console.WriteLine(chr)
-        For j = 1 To Len(S) - 1
-            chr2 = Mid(S, (j + 1), 1)
-            If chr2 = chr Then
-                chr2 = "*"
+        Dim Str1 As String
+        Dim NumCount, i, k, ANum As Integer
+        Dim Chr, chr2, Chr3 As Char
+        ANum = 0
+        Chr3 = " "
+        NumCount = 0
+        Console.WriteLine("Enter the strin: ")
+        Str1 = Console.ReadLine()
+        For k = 1 To Len(Str1)
+            Chr = Mid(Str1, k, 1)
+            NumCount = 0
+            For i = 1 To Len(Str1)
+                chr2 = Mid(Str1, i, 1)
+                If Chr = chr2 Then NumCount = NumCount + 1
+            Next
+            If NumCount > ANum Then
+                ANum = NumCount
+                Chr3 = chr2
             End If
-            Console.WriteLine(chr2)
         Next
+        Console.WriteLine(Chr3 & " : appeared" & ANum & "  : times")
         Console.ReadKey()
+
+
+
+
+
+
+
+
     End Sub
 End Module
