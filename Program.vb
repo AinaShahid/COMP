@@ -1,38 +1,32 @@
 Imports System
-Imports System.Threading
+Imports System.Transactions
 
 Module Program
     Sub Main()
-        Dim S, StrS As String
-        Dim char1, char2 As Char
-        Dim k, i As Integer
-        k = 0
-        char1 = " "
-        char2 = " "
-        Console.WriteLine("Enter string: ")
-        S = Console.ReadLine()
-        For k = 1 To Len(S)
-            If Len(S) > 2 Then
-                char1 = Right(S, 2)
-                For i = 1 To Len(S) - 1
-                    char2 = Left(S, 2)
-                Next
-                StrS = char1 & char2
+        Dim Str1, Str2 As String
+        Dim char1, char2, char3 As Char
+        Dim i As Integer
+        Str1 = ""
+        Str2 = ""
+        char1 = ""
+        char2 = ""
+        char3 = ""
+        i = 0
+        Console.WriteLine("Enter the string: ")
+        Str1 = Console.ReadLine()
+        Console.WriteLine("Enter the character to be replaced: ")
+        char1 = Console.ReadLine()
+        Console.WriteLine("Enter character to be replaced with: ")
+        char2 = Console.ReadLine()
+        For i = 1 To Len(Str1)
+            char3 = Mid(Str1, i, 1)
+            If char1 <> char3 Then
+                Str2 = Str2 & char3
             Else
-                StrS = S
+                Str2 = Str2 & char2
             End If
         Next
-        Console.Write("the new string is: " & StrS)
+        Console.WriteLine("The new string is: " & Str2)
         Console.ReadKey()
-
-
-
-
-
-
-
-
-
-
     End Sub
 End Module
